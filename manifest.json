@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "SideKick",
+  "version": "1.0",
+  "description": "View a URL in a side panel alongside your current page",
+  "permissions": ["sidePanel", "activeTab", "tabs", "contextMenus", "storage"],
+  "action": {
+    "default_title": "Open SideKick Panel"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  }
+}
