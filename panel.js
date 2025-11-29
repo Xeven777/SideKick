@@ -8,6 +8,8 @@ const forwardBtn = document.getElementById('forwardBtn');
 const reloadBtn = document.getElementById('reloadBtn');
 const homeBtn = document.getElementById('homeBtn');
 const openInTabBtn = document.getElementById('openInTabBtn');
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+const aiBtn = document.getElementById('aiBtn');
 const quickLinks = document.querySelectorAll('.quick-link');
 
 let history = [];
@@ -82,10 +84,30 @@ homeBtn.addEventListener('click', () => {
     goHome();
 });
 
+// Fullscreen toggle
+fullscreenBtn.addEventListener('click', () => {
+    document.body.classList.toggle('fullscreen');
+});
+
+// Exit fullscreen on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('fullscreen')) {
+        document.body.classList.remove('fullscreen');
+    }
+});
+
 openInTabBtn.addEventListener('click', () => {
     if (currentLoadingUrl) {
         chrome.tabs.create({ url: currentLoadingUrl });
     }
+});
+
+// AI Assistant button
+aiBtn.addEventListener('click', () => {
+    const aiUrl = 'https://cerebras-ai.vercel.app/';
+    urlInput.value = aiUrl;
+    addToHistory(aiUrl);
+    loadFrame(aiUrl);
 });
 
 // Quick links

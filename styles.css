@@ -49,6 +49,12 @@ body {
 }
 
 /* Icons */
+.icon-xs {
+  width: 14px;
+  height: 14px;
+  color: currentColor;
+}
+
 .icon-sm {
   width: 16px;
   height: 16px;
@@ -68,32 +74,50 @@ body {
 }
 
 .header-content {
-  padding: 16px;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* Brand */
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .brand-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 12px;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 4px 8px -2px rgba(99, 102, 241, 0.25);
   color: white;
 }
 
 .brand-text {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.025em;
 }
@@ -102,13 +126,13 @@ body {
 .nav-buttons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 .nav-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: #f8fafc;
   border: 1px solid rgba(226, 232, 240, 0.8);
   color: #475569;
@@ -119,10 +143,35 @@ body {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-btn-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+/* AI Button */
+.ai-btn {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 50%, #ef4444 100%);
+  border: none;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ai-btn:hover {
+  background: linear-gradient(135deg, #f76a28 50%, #ef4444 100%);
+  box-shadow: 0 4px 12px -2px rgba(239, 68, 68, 0.4);
+}
+
+.ai-btn svg {
+  position: relative;
+  z-index: 1;
+}
+
 .nav-btn:hover:not(:disabled) {
-  background: #f1f5f9;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .nav-btn:active:not(:disabled) {
@@ -137,14 +186,15 @@ body {
 }
 
 .nav-divider {
-  height: 24px;
+  height: 20px;
   width: 1px;
   background: #e2e8f0;
-  margin: 0 4px;
+  margin: 0 2px;
 }
 
 /* Input Group */
 .input-group {
+  flex-grow: 1;
   display: flex;
   gap: 8px;
 }
@@ -156,7 +206,7 @@ body {
 
 .input-icon {
   position: absolute;
-  left: 14px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   color: #94a3b8;
@@ -167,11 +217,11 @@ body {
 
 .url-input {
   width: 100%;
-  padding: 12px 16px 12px 42px;
+  padding: 8px 12px 8px 34px;
   background: rgba(248, 250, 252, 0.8);
-  border: 2px solid rgba(226, 232, 240, 0.8);
-  border-radius: 12px;
-  font-size: 14px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 500;
   font-family: inherit;
   color: #334155;
@@ -187,22 +237,21 @@ body {
   outline: none;
   border-color: #818cf8;
   background: white;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15),
-    0 4px 20px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
 /* Go Button */
 .go-btn {
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
   color: white;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.25);
+  gap: 6px;
+  box-shadow: 0 4px 8px -2px rgba(99, 102, 241, 0.25);
 }
 
 /* Error Message */
@@ -222,6 +271,55 @@ body {
   flex: 1;
   padding: 8px;
   overflow: hidden;
+  transition: padding 0.3s ease;
+}
+
+/* Fullscreen Mode */
+body.fullscreen .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.fullscreen .main-content {
+  padding: 0;
+  height: 100vh;
+}
+
+body.fullscreen .frame-container {
+  border-radius: 0;
+  height: 100%;
+}
+
+/* Fullscreen exit hint */
+body.fullscreen::before {
+  content: "Press Esc to exit fullscreen";
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+body.fullscreen:hover::before {
+  opacity: 1;
+}
+
+.header {
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .frame-container {

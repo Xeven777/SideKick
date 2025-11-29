@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="purpleGrad48" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <clipPath id="leftHalf48">
+      <rect x="0" y="0" width="24" height="48"/>
+    </clipPath>
+    <clipPath id="rightHalf48">
+      <rect x="24" y="0" width="24" height="48"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#leftHalf48)">
+    <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="white"/>
+  </g>
+  <g clip-path="url(#rightHalf48)">
+    <rect x="2" y="2" width="44" height="44" rx="10" ry="10" fill="url(#purpleGrad48)"/>
+  </g>
+</svg>
